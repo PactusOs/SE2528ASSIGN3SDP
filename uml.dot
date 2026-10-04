@@ -1,0 +1,25 @@
+digraph Bridge {
+    graph [bgcolor="white", pad=0.12, splines=ortho, overlap=false];
+    node [shape=plain, fontname="DejaVu Sans", fontsize=11];
+    edge [fontname="DejaVu Sans", fontsize=9, color="#667085", arrowsize=0.85];
+    Shape [pos="150,570!", group="left", label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7" COLOR="#364152"><TR><TD BGCOLOR="#edf4f8"><B>&lt;&lt;abstract&gt;&gt;<BR/>Shape</B></TD></TR><TR><TD ALIGN="LEFT">-id: String {readOnly}<BR ALIGN="LEFT"/>-implementation: Renderer<BR ALIGN="LEFT"/></TD></TR><TR><TD ALIGN="LEFT">#Shape(String,Renderer)<BR ALIGN="LEFT"/>+getId(): String<BR ALIGN="LEFT"/>+setImplementation(Renderer): void<BR ALIGN="LEFT"/>#render(String,String,int): String<BR ALIGN="LEFT"/>+execute(): String {abstract}<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+    Renderer [pos="445,570!", group="right", label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7" COLOR="#364152"><TR><TD BGCOLOR="#edf4f8"><B>&lt;&lt;interface&gt;&gt;<BR/>Renderer</B></TD></TR><TR><TD ALIGN="LEFT">+render(String,String,int): String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+    Circle [pos="150,385!", group="left", label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7" COLOR="#364152"><TR><TD BGCOLOR="#ffffff"><B>Circle</B></TD></TR><TR><TD ALIGN="LEFT">-radius: int {readOnly}<BR ALIGN="LEFT"/></TD></TR><TR><TD ALIGN="LEFT">+Circle(String,int,Renderer)<BR ALIGN="LEFT"/>+getRadius(): int<BR ALIGN="LEFT"/>+execute(): String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+    Square [pos="150,240!", group="left", label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7" COLOR="#364152"><TR><TD BGCOLOR="#ffffff"><B>Square</B></TD></TR><TR><TD ALIGN="LEFT">-side: int {readOnly}<BR ALIGN="LEFT"/></TD></TR><TR><TD ALIGN="LEFT">+Square(String,int,Renderer)<BR ALIGN="LEFT"/>+getSide(): int<BR ALIGN="LEFT"/>+execute(): String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+    VectorRenderer [pos="445,420!", group="right", label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7" COLOR="#364152"><TR><TD BGCOLOR="#ffffff"><B>VectorRenderer</B></TD></TR><TR><TD ALIGN="LEFT">+render(String,String,int): String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+    RasterRenderer [pos="445,280!", group="right", label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7" COLOR="#364152"><TR><TD BGCOLOR="#ffffff"><B>RasterRenderer</B></TD></TR><TR><TD ALIGN="LEFT">+render(String,String,int): String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+    AsciiRenderer [pos="445,135!", group="right", label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7" COLOR="#364152"><TR><TD BGCOLOR="#ffffff"><B>AsciiRenderer</B></TD></TR><TR><TD ALIGN="LEFT">+render(String,String,int): String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+    Main [pos="150,70!", group="left", label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="7" COLOR="#364152"><TR><TD BGCOLOR="#f5f6f8"><B>Main</B></TD></TR><TR><TD ALIGN="LEFT">-passed: int<BR ALIGN="LEFT"/>-total: int<BR ALIGN="LEFT"/></TD></TR><TR><TD ALIGN="LEFT">+main(String[]): void {static}<BR ALIGN="LEFT"/>-demo(): void<BR ALIGN="LEFT"/>-testSwitch(): void<BR ALIGN="LEFT"/>-test(String,String,Shape,String): void<BR ALIGN="LEFT"/>-check(String,String,String,String): void<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+    Shape -> Renderer [arrowhead=vee, constraint=false, color="#243c53", penwidth=1.8];
+    Shape -> Circle [dir=back, arrowtail=empty, color="#364152"];
+    Shape -> Square [dir=back, arrowtail=empty, color="#364152"];
+    Renderer -> VectorRenderer [dir=back, arrowtail=empty, style=dashed];
+    Renderer -> RasterRenderer [dir=back, arrowtail=empty, style=dashed];
+    Renderer -> AsciiRenderer [dir=back, arrowtail=empty, style=dashed];
+    Main -> Shape [style=dotted, arrowhead=vee, constraint=false];
+    Main -> Circle [style=dotted, arrowhead=vee, constraint=false];
+    Main -> Square [style=dotted, arrowhead=vee, constraint=false];
+    Main -> VectorRenderer [style=dotted, arrowhead=vee, constraint=false];
+    Main -> RasterRenderer [style=dotted, arrowhead=vee, constraint=false];
+    Main -> AsciiRenderer [style=dotted, arrowhead=vee, constraint=false];
+}

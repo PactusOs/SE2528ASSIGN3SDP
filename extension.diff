@@ -1,0 +1,24 @@
+diff --git a/src/AsciiRenderer.java b/src/AsciiRenderer.java
+new file mode 100644
+index 0000000..c757f90
+--- /dev/null
++++ b/src/AsciiRenderer.java
+@@ -0,0 +1,5 @@
++public class AsciiRenderer implements Renderer{
++    public String render(String shape,String dimension,int size){
++        return "ASCII | "+shape+" | "+dimension+"="+size+" |";
++    }
++}
+diff --git a/src/Main.java b/src/Main.java
+index c525784..1a10515 100644
+--- a/src/Main.java
++++ b/src/Main.java
+@@ -41,6 +41,8 @@ public class Main{
+         test("T3","Square + VectorRenderer",new Square("S1",3,new VectorRenderer()),"VECTOR square side=3");
+         test("T4","Square + RasterRenderer",new Square("S1",3,new RasterRenderer()),"[RASTER] square {side=3}");
+         testSwitch();
++        test("T6","Circle + AsciiRenderer",new Circle("C1",2,new AsciiRenderer()),"ASCII | circle | radius=2 |");
++        test("T7","Square + AsciiRenderer",new Square("S1",3,new AsciiRenderer()),"ASCII | square | side=3 |");
+         System.out.println("SUMMARY: "+passed+"/"+total+" PASS");
+     }
+     public static void main(String[] args){
